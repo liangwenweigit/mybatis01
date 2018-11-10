@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 将我们写好的sql映射文件（EmployeeMapper.xml）一定要注册到全局配置文件（mybatis-config.xml）中 -->
 	<!-- 5、mappers：将sql映射注册到全局配置中 -->
 	<mappers>
-		<mapper resource="sqlmapper/UserMapper.xml"/>
+		<!-- <mapper resource="sqlmapper/UserMapper.xml"/> -->
 		
 		<!--通过resource方法一次加载一个映射文件 -->
 		<!-- <mapper resource="mapper/UserMapper.xml"/> -->
@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		遵循一些规范：需要将mapper接口类名和mapper.xml映射文件名称保持一致，且在一个目录 中
 		上边规范的前提是：使用的是mapper代理方法
 		 -->
-		<package name="cn.itcast.mybatis.mapper"/>
+		<package name="com.fly.mapper"/>
 	</mappers>
 	
 </configuration>
