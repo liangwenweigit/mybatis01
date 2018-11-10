@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fly.domain.User">
+<!-- 
+namespace:名称空间;指定为接口的全类名
+id：唯一标识
+resultType：返回值类型
+#{id}：占位符，从传递过来的参数中取出id值
+public Employee getEmpById(Integer id);
+ --><!--表名和数据库名 不一样的时候可以用别名 如下的lastName  -->
+ <!--根据id查询一个  -->
+	<select id="getUserById" parameterType="int" resultType="com.fly.domain.User">
+		select * from user where id = #{id}
+	</select>
+	<!--根据用户名模糊查询  -->
+	<select id="getUserByName" parameterType="String" resultType="com.fly.domain.User">
+	    select * from user where username like #{username}
+	</select>
+	
+	<!--根据用户名模糊查询  不推荐使用
+	    ${}:表示拼接sql,将接收到的内容不加任何修饰拼接在sql中，会引sql注入
+	        注意的就是因为是字符串 要加单引号（打印就是like '%小明%' ）
+	    ${value}:接收参数的内容，简单类型只能写 value
+	 -->
+	<select id="getUserByName1" parameterType="String" resultType="com.fly.domain.User">
+	    select * from user where username like '%${value}%'
+	</select>
+	<!--添加用户 
+	parameterType： 参数直接写全路径名
+	#{}：参数直接写domian类的属性 -->
+	<insert id="addUser" parameterType="com.fly.domain.User">
+	    insert into user(username,birthday,sex,address) 
+	    values(#{username},#{birthday},#{sex},#{address})
+	</insert>
+	<!--删除用户  -->
+	<delete id="deleteUser" parameterType="int">
+	    delete from user where id = #{id}
+	</delete>
+	<!--更新用户  -->
+	<update id="updateUser" parameterType="com.fly.domain.User">
+	    update user set username=#{username} where id=#{id}
+	</update>
+</mapper>
