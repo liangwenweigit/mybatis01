@@ -9,6 +9,8 @@ public class User implements Serializable{
 	private String username;// 用户姓名
 	private String sex;// 性别
 	private Date birthday;// 生日
+	private String address;// 地址
+	
 	public User(String username, String sex, Date birthday, String address) {
 		super();
 		this.username = username;
@@ -16,7 +18,7 @@ public class User implements Serializable{
 		this.birthday = birthday;
 		this.address = address;
 	}
-	private String address;// 地址
+	
 	public int getId() {
 		return id;
 	}

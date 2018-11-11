@@ -13,10 +13,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.tools.ant.types.resources.comparators.Date;
 import org.junit.Test;
 import com.fly.domain.User;
+/**
+ * 测试原始Dao方式
+ * @author liang
+ * 2018年11月11日上午12:46:04
+ */
 
-
-
-public class fun {
+public class funDao {
 	
 	public SqlSession getSqlSession(){
 		//加载主配置文件
