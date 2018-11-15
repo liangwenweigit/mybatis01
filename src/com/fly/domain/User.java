@@ -1,7 +1,9 @@
 package com.fly.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 public class User implements Serializable{
 	
 	//属性名和数据库表的字段对应
@@ -10,6 +12,8 @@ public class User implements Serializable{
 	private String sex;// 性别
 	private Date birthday;// 生日
 	private String address;// 地址
+	
+	private List<Orders> orders = new ArrayList<Orders>(0);
 	
 	public User(String username, String sex, Date birthday, String address) {
 		super();
@@ -43,6 +47,12 @@ public class User implements Serializable{
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", sex=" + sex + ", birthday=" + birthday + ", address="
+				+ address + ", orders=" + orders + "]";
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -61,10 +71,13 @@ public class User implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", sex=" + sex
-				+ ", birthday=" + birthday + ", address=" + address + "]";
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
 	}
 
 

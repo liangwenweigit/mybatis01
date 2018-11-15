@@ -8,6 +8,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       namespace等于mapper（UserMapper）接口全路径名
 -->
 <mapper namespace="com.fly.mapper.UserMapper">
+<!--开启本mapper的namespace下的二级缓存  
+    type:指定配置的ehcache实现的cache接口（整合ehcache）完成-->
+<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
      <!--1根据id查询一个  -->
      <select id="findUser" parameterType="int" resultType="com.fly.domain.User">
          select * from user where id = #{id}

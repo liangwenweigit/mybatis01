@@ -1,5 +1,7 @@
 package com.fly.domain;
 
+import java.io.Serializable;
+
 import com.fly.domain.User;
 
 /**
@@ -7,7 +9,7 @@ import com.fly.domain.User;
  * @author liang
  * 2018年11月11日下午3:39:17
  */
-public class UserCustom  extends User{
+public class UserCustom  extends User implements Serializable{
 	
 	private String like;
 
